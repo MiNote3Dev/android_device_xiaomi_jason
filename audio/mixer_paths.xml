@@ -1770,6 +1770,7 @@
         <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="INT3_MI2S_TX Channels" value="Two" />
+        <ctl name="ADC1_INP1 Switch" value="1" />
     </path>
 
     <path name="handset-mic-db">
@@ -1991,6 +1992,7 @@
         <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="INT3_MI2S_TX Channels" value="Two" />
+        <ctl name="ADC1_INP1 Switch" value="1" />
     </path>
 
     <path name="speaker-dmic-endfire">
@@ -1998,6 +2000,7 @@
         <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="INT3_MI2S_TX Channels" value="Two" />
+        <ctl name="ADC1_INP1 Switch" value="1" />
     </path>
 
     <path name="handset-dmic-music">
