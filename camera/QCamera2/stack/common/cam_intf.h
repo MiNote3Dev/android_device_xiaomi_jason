@@ -916,23 +916,21 @@ typedef struct {
 /**************************************************************************************
  *  ID from (cam_intf_metadata_type_t)                DATATYPE                     COUNT
  **************************************************************************************/
+    volatile char         xiaomi_reserved1[8];
     /* common between HAL1 and HAL3 */
     INCLUDE(CAM_INTF_META_HISTOGRAM,                    cam_hist_stats_t,               1);
     INCLUDE(CAM_INTF_META_FACE_DETECTION,               cam_face_detection_data_t,      1);
-    INCLUDE(CAM_INTF_META_FACE_RECOG,                   cam_face_recog_data_t,          1);
-    INCLUDE(CAM_INTF_META_FACE_BLINK,                   cam_face_blink_data_t,          1);
-    INCLUDE(CAM_INTF_META_FACE_GAZE,                    cam_face_gaze_data_t,           1);
-    INCLUDE(CAM_INTF_META_FACE_SMILE,                   cam_face_smile_data_t,          1);
+    //INCLUDE(CAM_INTF_META_FACE_GAZE,                    cam_face_gaze_data_t,           1);
     INCLUDE(CAM_INTF_META_FACE_LANDMARK,                cam_face_landmarks_data_t,      1);
     INCLUDE(CAM_INTF_META_FACE_CONTOUR,                 cam_face_contour_data_t,        1);
     INCLUDE(CAM_INTF_META_AUTOFOCUS_DATA,               cam_auto_focus_data_t,          1);
-    INCLUDE(CAM_INTF_META_CDS_DATA,                     cam_cds_data_t,                 1);
-    INCLUDE(CAM_INTF_PARM_UPDATE_DEBUG_LEVEL,           uint32_t,                       1);
+    //INCLUDE(CAM_INTF_META_CDS_DATA,                     cam_cds_data_t,                 1);
+    INCLUDE(CAM_INTF_PARM_UPDATE_DEBUG_LEVEL,           uint32_t,                       6);
 
     /* Specific to HAl1 */
     INCLUDE(CAM_INTF_META_CROP_DATA,                    cam_crop_data_t,                1);
-    INCLUDE(CAM_INTF_META_PREP_SNAPSHOT_DONE,           int32_t,                        1);
-    INCLUDE(CAM_INTF_META_GOOD_FRAME_IDX_RANGE,         cam_frame_idx_range_t,          1);
+    INCLUDE(CAM_INTF_META_PREP_SNAPSHOT_DONE,           int32_t,                        3);
+    //INCLUDE(CAM_INTF_META_GOOD_FRAME_IDX_RANGE,         cam_frame_idx_range_t,          1);
     INCLUDE(CAM_INTF_META_ASD_HDR_SCENE_DATA,           cam_asd_hdr_scene_data_t,       1);
     INCLUDE(CAM_INTF_META_ASD_SCENE_INFO,               cam_asd_decision_t,             1);
     INCLUDE(CAM_INTF_META_CURRENT_SCENE,                cam_scene_mode_type,            1);
@@ -947,12 +945,12 @@ typedef struct {
     INCLUDE(CAM_INTF_BUF_DIVERT_INFO,                   cam_buf_divert_info_t,          1);
 
     /* Specific to HAL3 */
-    INCLUDE(CAM_INTF_META_FRAME_NUMBER_VALID,           int32_t,                     1);
-    INCLUDE(CAM_INTF_META_URGENT_FRAME_NUMBER_VALID,    int32_t,                     1);
+    //INCLUDE(CAM_INTF_META_FRAME_NUMBER_VALID,           int32_t,                     1);
+    //INCLUDE(CAM_INTF_META_URGENT_FRAME_NUMBER_VALID,    int32_t,                     1);
     INCLUDE(CAM_INTF_META_FRAME_DROPPED,                cam_stream_ID_t,             1);
-    INCLUDE(CAM_INTF_META_FRAME_NUMBER,                 uint32_t,                    1);
-    INCLUDE(CAM_INTF_META_URGENT_FRAME_NUMBER,          uint32_t,                    1);
-    INCLUDE(CAM_INTF_META_COLOR_CORRECT_MODE,           uint32_t,                    1);
+    INCLUDE(CAM_INTF_META_FRAME_NUMBER,                 uint32_t,                    18);
+    INCLUDE(CAM_INTF_META_URGENT_FRAME_NUMBER,          uint32_t,                    4);
+    INCLUDE(CAM_INTF_META_COLOR_CORRECT_MODE,           uint32_t,                    21);
     INCLUDE(CAM_INTF_META_COLOR_CORRECT_TRANSFORM,      cam_color_correct_matrix_t,  1);
     INCLUDE(CAM_INTF_META_COLOR_CORRECT_GAINS,          cam_color_correct_gains_t,   1);
     INCLUDE(CAM_INTF_META_PRED_COLOR_CORRECT_TRANSFORM, cam_color_correct_matrix_t,  1);
@@ -1176,6 +1174,10 @@ typedef struct {
     INCLUDE(CAM_INTF_PARAM_BOKEH_BLUR_LEVEL,            cam_rtb_blur_info_t,         1);
     INCLUDE(CAM_INTF_META_RTB_DATA,                     cam_rtb_msg_type_t,          1);
     INCLUDE(CAM_INTF_META_DC_CAPTURE,                   uint8_t,                     1);
+
+    INCLUDE(CAM_INTF_META_FACE_RECOG,                   cam_face_recog_data_t,          1);
+    INCLUDE(CAM_INTF_META_FACE_BLINK,                   cam_face_blink_data_t,          1);
+    INCLUDE(CAM_INTF_META_FACE_SMILE,                   cam_face_smile_data_t,          1);
 } metadata_data_t;
 
 /* Update clear_metadata_buffer() function when a new is_xxx_valid is added to

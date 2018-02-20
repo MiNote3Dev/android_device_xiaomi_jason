@@ -78,12 +78,12 @@
 #define CAL_TRANSFORM_COLS        3
 #define CAL_TRANSFORM_ROWS        3
 
-#define MAX_ISP_DATA_SIZE (20*1024)
-#define MAX_PP_DATA_SIZE  16384
-#define MAX_AE_STATS_DATA_SIZE  1000
-#define MAX_AWB_STATS_DATA_SIZE 1000
-#define MAX_AF_STATS_DATA_SIZE  1000
-#define MAX_ASD_STATS_DATA_SIZE 1000
+#define MAX_ISP_DATA_SIZE (20*10+12)
+#define MAX_PP_DATA_SIZE  4
+#define MAX_AE_STATS_DATA_SIZE  60
+#define MAX_AWB_STATS_DATA_SIZE 32
+#define MAX_AF_STATS_DATA_SIZE  20480
+#define MAX_ASD_STATS_DATA_SIZE 16384
 
 #define MAX_CAPTURE_BATCH_NUM 32
 
@@ -1285,19 +1285,20 @@ typedef struct {
     cam_coordinate_type_t right_eye_center; /* coordinate of center of right eye */
     uint8_t is_mouth_valid;
     cam_coordinate_type_t mouth_center;     /* coordinate of center of mouth */
+    uint8_t hack;
 } cam_face_landmarks_info_t;
 
 typedef struct {
-    cam_face_landmarks_info_t face_landmarks[MAX_ROI];
+    cam_face_landmarks_info_t face_landmarks[2];
 } cam_face_landmarks_data_t;
 
 typedef struct {
     uint8_t smile_degree;      /* smile degree (0, -100) */
-    uint8_t smile_confidence;  /* smile confidence (0, 100) */
+    //uint8_t smile_confidence;  /* smile confidence (0, 100) */
 } cam_face_smile_info_t;
 
 typedef struct {
-    cam_face_smile_info_t smile[MAX_ROI];
+    cam_face_smile_info_t smile[1];
 } cam_face_smile_data_t;
 
 typedef struct {
@@ -1317,19 +1318,20 @@ typedef struct {
     uint8_t blink_detected;    /* if blink is detected */
     uint8_t left_blink;        /* left eye blink degeree (0, -100) */
     uint8_t right_blink;       /* right eye blink degree (0, - 100) */
+    uint8_t hack1;
 } cam_face_blink_info_t;
 
 typedef struct {
-    cam_face_blink_info_t blink[MAX_ROI];
+    cam_face_blink_info_t blink[MAX_ROI+2];
 } cam_face_blink_data_t;
 
 typedef struct {
-    uint8_t face_recognised;   /* if face is recognised */
+    //uint8_t face_recognised;   /* if face is recognised */
     uint32_t unique_id;   /* if face is recognised */
 } cam_face_recog_info_t;
 
 typedef struct {
-    cam_face_recog_info_t face_rec[MAX_ROI];
+    cam_face_recog_info_t face_rec[1];
 } cam_face_recog_data_t;
 
 typedef struct {
@@ -1545,9 +1547,9 @@ typedef enum {
 
 typedef enum {
     CC_RED_GAIN,
-    CC_GREEN_RED_GAIN,
-    CC_GREEN_BLUE_GAIN,
-    CC_BLUE_GAIN,
+    // CC_GREEN_RED_GAIN,
+    // CC_GREEN_BLUE_GAIN,
+    // CC_BLUE_GAIN,
     CC_GAIN_MAX
 } cam_cc_gains_type_t;
 
@@ -1592,7 +1594,6 @@ typedef enum {
 
 typedef struct {
   uint32_t is_hdr_scene;
-  float    hdr_confidence;
 } cam_asd_hdr_scene_data_t;
 
 typedef struct {
@@ -1605,6 +1606,7 @@ typedef struct {
   cam_auto_scene_t      detected_scene;
   uint8_t               max_n_scenes;
   cam_asd_scene_info_t  scene_info[S_MAX];
+  uint8_t hack[181];
 } cam_asd_decision_t;
 
 
@@ -1872,6 +1874,7 @@ typedef struct {
 typedef struct {
     uint32_t num_streams;
     cam_stream_request_t stream_request[MAX_NUM_STREAMS];
+    uint32_t hack[10];
 } cam_stream_ID_t;
 
 /*CAC Message posted during pipeline*/
@@ -1896,6 +1899,7 @@ typedef struct {
     uint32_t frame_id;
     uint32_t num_streams;
     uint32_t stream_id[MAX_NUM_STREAMS];
+    uint32_t hack[2];
 } cam_buf_divert_info_t;
 
 typedef enum {
