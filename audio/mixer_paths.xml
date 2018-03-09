@@ -1827,9 +1827,12 @@
     </path>
 
     <path name="voice-handset">
+        <ctl name="SpkrLeft WSA PA Gain" value="G_15_DB" />
         <path name="handset" />
         <ctl name="RX4 Digital Volume" value="75" />
         <ctl name="COMP1 Switch" value="0" />
+        <ctl name="COMP2 Switch" value="0" />
+        <ctl name="SpkrLeft COMP Switch" value="0" />
     </path>
 
     <path name="voice-handset-tmus">
