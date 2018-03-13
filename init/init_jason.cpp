@@ -31,7 +31,6 @@
  #include <stdio.h>
  #include <stdlib.h>
  #include <sys/sysinfo.h>
- #include <unistd.h>
  
  #include <android-base/strings.h>
  
@@ -42,15 +41,6 @@
  
  using android::base::Trim;
  
-static void init_finger_print_properties()
-{
-	if (access("/persist/fpc/calibration_image.pndat", 0) == -1) {
-		property_set("ro.hardware.fingerprint", "goodix");
-	} else {
-		property_set("ro.hardware.fingerprint", "fpc");
-	}
-}
-
  static void init_alarm_boot_properties()
  {
      char const *boot_reason_file = "/proc/sys/kernel/boot_reason";
@@ -94,5 +84,4 @@ static void init_finger_print_properties()
          return;
  
      init_alarm_boot_properties();
-     init_finger_print_properties();
  }
