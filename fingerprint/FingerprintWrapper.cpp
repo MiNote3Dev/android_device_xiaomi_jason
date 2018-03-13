@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017, The LineageOS Project
+ * Copyright (C) 2017-2018, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ static int open_device_for_vendor(device_t *device, const char *class_name)
     const hw_module_t *hw_module = NULL;
     int rv;
 
-    rv = hw_get_module_by_class("fingerprint", class_name, &hw_module);
+    rv = hw_get_module_by_class(FINGERPRINT_HARDWARE_MODULE_ID, class_name, &hw_module);
     if (rv) {
         ALOGE("Failed to get fingerprint module: class %s, error %d", class_name, rv);
         return rv;
