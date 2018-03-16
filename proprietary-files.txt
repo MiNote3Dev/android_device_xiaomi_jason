@@ -510,20 +510,34 @@ vendor/lib64/libdpmtcm.so
 # DRM
 bin/qseecomd
 vendor/bin/qseeproxydaemon
+vendor/lib/libcppf.so
+vendor/lib/libqisl.so
 vendor/lib/libQSEEComAPI.so
-vendor/lib64/lib-sec-disp.so
+vendor/lib/librpmb.so
+vendor/lib/libssd.so
+vendor/lib/libStDrvInt.so
+vendor/lib/libtzdrmgenprov.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
-vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libGPreqcancel.so
+vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libqisl.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
-vendor/lib64/libsecureui_svcsock.so
+vendor/lib64/lib-sec-disp.so
 vendor/lib64/libsecureui.so
+vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libSecureUILib.so
 vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
+vendor/lib64/libtzdrmgenprov.so
+
+# DRM - Playready
+vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so
+vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
+vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
+vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so
+vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
 
 # Fingerprint sensor
 lib64/hw/fingerprint.fpc.so:lib64/hw/fingerprint.fpc.sdm660.so
@@ -873,6 +887,9 @@ bin/time_daemon
 vendor/lib/libTimeService.so
 -vendor/lib64/libtime_genoff.so
 vendor/lib64/libTimeService.so
+
+# Widevine
+vendor/lib/mediadrm/libwvdrmengine.so|b0af99b09e3cc682e30ba3833370ff51935c322b
 
 # Wifi
 bin/cnss_diag
