@@ -132,6 +132,9 @@ on boot
     chown system system /persist/speccfg/submask
     chown system system /persist/speccfg/partition
 
+    # Set idle GPU to 160 Mhz
+    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+
     # LED full scale current is 8mA and limit it to 2mA
     write /sys/class/leds/button-backlight/max_brightness 64
     write /sys/class/leds/button-backlight1/max_brightness 64
