@@ -24,8 +24,8 @@
 DEVICE_PATH := device/xiaomi/jason
 
 # SDClang configuration
-SDCLANG := true
-TARGET_USE_SDCLANG := true
+#SDCLANG := true
+#TARGET_USE_SDCLANG := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm660
