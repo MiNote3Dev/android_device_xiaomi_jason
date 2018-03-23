@@ -21,10 +21,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from jason device
 $(call inherit-product, device/xiaomi/jason/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
-PRODUCT_NAME := lineage_jason
+# must be before including omni part
+TARGET_BOOTANIMATION_SIZE := 1080x608
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Boot animation
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1920
+
+PRODUCT_NAME := omni_jason
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := jason
 PRODUCT_MANUFACTURER := Xiaomi
